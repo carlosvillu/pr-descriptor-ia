@@ -1,23 +1,40 @@
-name: The name of your action here
-description: Provide a description here
-author: Your name or organization here
+name: AI PR Description Generator
+description:
+  Automatically generates comprehensive PR descriptions using Claude AI
+author: Your Organization
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
-  icon: heart
-  color: red
+  icon: edit-3
+  color: purple
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: Your input description here
+  github-token:
+    description: GitHub token for API access
     required: true
-    default: '1000'
+  claude-api-key:
+    description: Claude API key for generating descriptions
+    required: true
+  config-path:
+    description: Path to configuration file
+    required: false
+    default: '.github/pr-description.yml'
+  claude-model:
+    description: Claude model to use
+    required: false
+    default: 'claude-3-5-sonnet-20241022'
+  max-diff-size:
+    description: Maximum diff size in characters
+    required: false
+    default: '250000'
 
 # Define your outputs here.
 outputs:
-  time:
-    description: Your output description here
+  description:
+    description: Generated PR description
+  status:
+    description: Status of the operation (success/skipped/failed)
 
 runs:
   using: node20

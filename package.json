@@ -1,20 +1,24 @@
 {
-  "name": "typescript-action",
-  "description": "GitHub Actions TypeScript template",
-  "version": "0.0.0",
+  "name": "ai-pr-description-action",
+  "description": "GitHub Action to automatically generate PR descriptions using Claude AI",
+  "version": "1.0.0",
   "author": "",
   "type": "module",
   "private": true,
-  "homepage": "https://github.com/actions/typescript-action",
+  "homepage": "https://github.com/actions/ai-pr-description-action",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/actions/ai-pr-description-action.git"
   },
   "bugs": {
-    "url": "https://github.com/actions/typescript-action/issues"
+    "url": "https://github.com/actions/ai-pr-description-action/issues"
   },
   "keywords": [
-    "actions"
+    "actions",
+    "ai",
+    "claude",
+    "pr-description",
+    "automation"
   ],
   "exports": {
     ".": "./dist/index.js"
@@ -37,7 +41,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.11.1"
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.0",
+    "@anthropic-ai/sdk": "^0.24.3",
+    "js-yaml": "^4.1.0"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.9",
@@ -47,6 +54,7 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.1.1",
     "@types/jest": "^29.5.14",
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.17.46",
     "@typescript-eslint/eslint-plugin": "^8.32.0",
     "@typescript-eslint/parser": "^8.32.0",
