@@ -57,6 +57,7 @@ export const summary = {
   emptyBuffer: jest.fn().mockReturnThis(),
   isEmptyBuffer: jest.fn().mockReturnValue(true),
   stringify: jest.fn().mockReturnValue(''),
+  // @ts-expect-error error
   write: jest.fn().mockResolvedValue(summary)
 }
 
