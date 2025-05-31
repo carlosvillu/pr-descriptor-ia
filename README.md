@@ -28,8 +28,14 @@ descriptions that help reviewers understand changes quickly.
 ```yaml
 name: Generate PR Description
 on:
+  workflow_dispatch:
   pull_request:
     types: [opened, synchronize]
+
+permissions:
+  issues: write
+  pull-requests: write
+  contents: write
 
 jobs:
   generate-description:
@@ -38,7 +44,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Generate PR Description
-        uses: your-org/ai-pr-description-action@v1
+        uses: carlosvillu/pr-descriptor-ia@v1.0.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           claude-api-key: ${{ secrets.CLAUDE_API_KEY }}
@@ -47,9 +53,14 @@ jobs:
 ### Manual Trigger
 
 ```yaml
-name: Generate PR Description (Manual)
+name: Generate PR Description
 on:
   workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+  contents: write
 
 jobs:
   generate-description:
@@ -58,7 +69,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Generate PR Description
-        uses: your-org/ai-pr-description-action@v1
+        uses: carlosvillu/pr-descriptor-ia@v1.0.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           claude-api-key: ${{ secrets.CLAUDE_API_KEY }}
